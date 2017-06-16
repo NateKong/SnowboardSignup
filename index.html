@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Epic Pass</title>
+  
+  <link rel="apple-touch-icon-precomposed" href="global_images/favicon.ico">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <meta name="msapplication-TileImage" content="global_images/favicon.ico">
+  <link rel="icon" href="global_images/favicon.ico" sizes="32x32" alt="images/faviconCopy.jpg">
+  <link rel="shortcut icon" sizes="196x196" href="global_images/favicon.ico">
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="global_css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <style>
+	.topPad{ padding-top: 30px; }
+  </style>
+  
+  
+  <!--  Scripts-->
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+  <script src="global_js/materialize.js"></script>
+  <script>
+	$(document).ready(function(){
+		$('.modal-trigger').leanModal();
+		$('select').material_select();
+		$("input#checkbox-delete").change(function(){
+			$("button").toggle();
+         });
+	});
+  </script>
+  <script>
+  /*		
+	function add(person){
+    	$.post('php/add.php', person, function(data, status){
+    		document.getElementById("mySQLData").innerHTML = data;
+    	})fail(function() {
+			document.getElementById("mySQLData").innerHTML = 'error';
+		});
+	}
+
+	function delete(name){
+		$.post('php/delete.php', name, function(data, status){
+			document.getElementById("mySQLData").innerHTML = data;
+		})fail(function() {
+			document.getElementById("mySQLData").innerHTML = 'error';
+		});
+	}*/
+
+	$(document).ready(function(){
+		//document.getElementById("mySQLData").innerHTML = "data";
+		$.get('php/query.php', function(data, status){
+			document.getElementById("mySQLData").innerHTML = data;
+		}).fail(function() {
+			document.getElementById("mySQLData").innerHTML = 'error';
+		});
+	});	
+	
+  </script>
+</head>
+<body class="indigo accent-3">
+  
+  <div class="container" style="margin: 25px auto">
+	  <div class="row">
+        <div class="col s3">
+          <!-- Modal Trigger -->
+		  <a class="modal-trigger waves-effect waves-light btn " href="#modal1">Epic</a>
+
+		  <!-- Modal Structure -->
+		  <div id="modal1" class="modal modal-fixed-footer">
+		    <div class="modal-content">
+		      <div class="row">
+		        <div class="col s10">
+		      	  <h4>Epic</h4>
+		        </div>
+		        <div class="col s2">
+		      	  <h4>$859</h4>
+		        </div>
+		      </div>
+		      <p>Unlimited access to Vail, Beaver Creek, Whistler Blackcomb, Breckenridge, Keystone, Park City, Heavenly, Northstar, Kirkwood, Stowe (subject to the closing of the acquisition), Wilmot, Afton Alps, Mt. Brighton, Perisher (2018 access) and Arapahoe Basin - Now includes Whistler Blackcomb! No restricted date</p>
+		    </div>
+		    <div class="modal-footer">
+		      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+		    </div>
+		  </div>
+        </div>
+        <div class="col s3">
+          <!-- Modal Trigger -->
+		  <a class="modal-trigger waves-effect waves-light btn" href="#modal2">Epic Local</a>
+
+		  <!-- Modal Structure -->
+		  <div id="modal2" class="modal modal-fixed-footer">
+		    <div class="modal-content">
+		      <div class="row">
+		        <div class="col s10">
+		      	  <h4>Epic Local</h4>
+		        </div>
+		        <div class="col s2">
+		      	  <h4>$639</h4>
+		        </div>
+		      </div>
+		      <p>Unlimited, unrestricted skiing or riding at Breckenridge, Keystone, Wilmot, Afton Alps, Mt. Brighton and Arapahoe Basin with limited restrictions at Park City, Heavenly, Northstar and Kirkwood. Also includes a total of 10 combined days at Vail, Beaver Creek, Whistler Blackcomb, and Stowe (subject to the closing of the acquisition) with holiday restrictions. </p>
+		    </div>
+		    <div class="modal-footer">
+		      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">OK</a>
+		    </div>
+		  </div>
+        </div>
+        <div class="col s3">
+          <!-- Modal Trigger -->
+		  <a class="modal-trigger waves-effect waves-light btn" href="#modal3">Tahoe Local</a>
+
+		  <!-- Modal Structure -->
+		  <div id="modal3" class="modal modal-fixed-footer">
+		    <div class="modal-content">
+		      <div class="row">
+		        <div class="col s10">
+		      	  <h4>Tahoe Local</h4>
+		        </div>
+		        <div class="col s2">
+		      	  <h4>$549</h4>
+		        </div>
+		      </div>
+		      <p>Unlimited skiing or riding at Heavenly, Northstar and Kirkwood 7 days a week, with limited holiday restrictions. Saturdays included at all resorts. 
+
+Also includes 5 total restricted days at Vail, Beaver Creek, Breckenridge, Keystone, Park City or Arapahoe Basin.</p>
+		    </div>
+		    <div class="modal-footer">
+		      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">OK</a>
+		    </div>
+		  </div>
+        </div>
+        <div class="col s3">
+          <!-- Modal Trigger -->
+		  <a class="modal-trigger waves-effect waves-light btn" href="#modal4">Tahoe Value</a>
+
+		  <!-- Modal Structure -->
+		  <div id="modal4" class="modal modal-fixed-footer">
+		    <div class="modal-content">
+		      <div class="row">
+		        <div class="col s10">
+		      	  <h4>Tahoe Value</h4>
+		        </div>
+		        <div class="col s2">
+		      	  <h4>$469</h4>
+		        </div>
+		      </div>
+		      <p>Access to Heavenly, Northstar and Kirkwood with limited restrictions. All Saturdays restricted at Northstar and Kirkwood.</p>
+		    </div>
+		    <div class="modal-footer">
+		      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">OK</a>
+		    </div>
+		  </div>
+        </div>
+	  </div>
+  </div>
+  
+
+	  <div class="container center">	
+  	    <ul class="collection" style="margin: 0px">
+          <li class="collection-item">
+            <div class="row" >
+              <div class="col s1 switch">
+                <label>
+                	<input id="checkbox-delete" type="checkbox">
+                	<span class="lever"></span>
+                </label>
+              </div>
+              <div class="col s4 "><strong>Name</strong></div>
+              <div class="col s3 "><strong>Birthday</strong></div>
+              <div class="col s4 "><strong>Pass</strong></div>
+            </div>
+          </li>
+          <span id="mySQLData">
+          <!--mySQL data goes here-->
+          </span>
+        </ul>
+          <!-- <form action="#"> -->
+          <div class="row" style="background-color: #FFFFFF; margin: 0px">
+            <div class="col s2">
+            	<button class="btn waves-effect green darken-1" style="margin-top: 15px">add</button>
+            </div>
+            <div class="col s4 input-field center">
+              <input id="name" type="text" class="validate" placeholder="Add Yourself">
+      	  	  <label for="name"></label>
+            </div>
+            <div class="col s3">
+            	<input type="date" name="bday" style="margin-top: 15px">
+            </div>
+            <div class="col s1"></div>
+            <div class="col s3 input-field" > 
+              <select style="z-index: 10000">
+                <option value="" disabled selected>Choose Wisely</option>
+                <option value="1">Epic</option>
+                <option value="2">Epic Local</option>
+                <option value="3">Tahoe Local</option>
+                <option value="4">Tahoe Value</option>
+              </select>
+              <label></label>
+            </div>
+          </div>
+          <!-- </form> -->
+	  </div>
+  
+
+</body>
+</html>
