@@ -7,5 +7,5 @@ Group signup sheet for skiers and riders
 used to describe the pass types
 
 ### Table
-uses ajax to querey mysql data
+uses ajax to query mysql data
 php is used as the connector
