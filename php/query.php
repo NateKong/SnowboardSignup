@@ -19,12 +19,11 @@ if ($result->num_rows > 0) {
   // output data of each row
   $id = 1;
   while($row = $result->fetch_assoc()) {
-
     $data .=
       '<li class="collection-item">
         <div class="row">
     		  <div class="col s1">
-        		<button class="btn waves-effect red" style="display: none" id="delete' . $id .'">delete</button>
+        		<button class="btn waves-effect red" id="delete' . $id .'">delete</button>
         	</div>
           <div id="name' . $id . '" class="col s4">' . $row["name"] . '</div>
         	<div class="col s3">' . date( "m/d/Y", strtotime ($row["date"])) . '</div>
@@ -34,7 +33,7 @@ if ($result->num_rows > 0) {
     $id++;
   }
 } else {
-    echo "Be the first one!!!";
+    echo "";
 }
 
 $conn->close();

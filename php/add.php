@@ -23,28 +23,28 @@ if($conn->query($post) === TRUE){
   $result = $conn->query($querySql);
 
   if ($result->num_rows > 0) {
-      // output data of each row
-      while($row = $result->fetch_assoc()) {
-          
-          $data .=
-            '<li class="collection-item">
-                 <div class="row">
-               <div class="col s1">
-                  <button class="btn waves-effect red" style="display: none">delete</button>
-                 </div>
-                 <div id="name1" class="col s4">' . $row["name"] . '</div>
-                 <div class="col s3">' . date( "m/d/Y", strtotime ($row["date"])) . '</div>
-                 <div class="col s4">' . $row["pass"] . '</div>
-                 </div>
-               </li>';
-              
-      }
+    // output data of each row
+    $id = 1;
+    while($row = $result->fetch_assoc()) {
+      $data .=
+        '<li class="collection-item">
+          <div class="row">
+            <div class="col s1">
+              <button class="btn waves-effect red" id="delete' . $id .'">delete</button>
+            </div>
+            <div id="name' . $id . '" class="col s4">' . $row["name"] . '</div>
+            <div class="col s3">' . date( "m/d/Y", strtotime ($row["date"])) . '</div>
+            <div class="col s4">' . $row["pass"] . '</div>
+          </div>
+        </li>';
+      $id++;
+    }
   } else {
-      echo "0 results";
+      echo "";
   }
   
 }else{
-  echo "Error: " . $post . " " . $conn->error;
+  echo "Error: Duplicate Name";
 }
 
 $conn->close();
