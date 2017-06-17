@@ -17,9 +17,9 @@ $data = '';
 
 if ($result->num_rows > 0) {
   // output data of each row
-
+  $id = 1;
   while($row = $result->fetch_assoc()) {
-    $id = 1;
+
     $data .=
       '<li class="collection-item">
         <div class="row">
