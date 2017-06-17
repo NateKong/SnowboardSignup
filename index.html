@@ -25,27 +25,18 @@
     src="https://code.jquery.com/jquery-3.2.1.js"
     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
     crossorigin="anonymous"></script>
-  <script src="global_js/materialize.js"></script>
+  <script src="global_js/materialize.js" async></script>
   <script>
 	$(document).ready(function(){
 		$('.modal-trigger').leanModal();
 		$('select').material_select();
 		$("input#checkbox-delete").change(function(){
-			$("button").toggle();
+			$("button.btn.red").toggle();
          });
 	});
   </script>
   <script>
-  /*		
-	function add(person){
-    	$.post('php/add.php', person, function(data, status){
-    		document.getElementById("mySQLData").innerHTML = data;
-    	})fail(function() {
-			document.getElementById("mySQLData").innerHTML = 'error';
-		});
-	}
-
-	function delete(name){
+	/*function delete(name){
 		$.post('php/delete.php', name, function(data, status){
 			document.getElementById("mySQLData").innerHTML = data;
 		})fail(function() {
@@ -63,6 +54,7 @@
 	});	
 	
   </script>
+  <script src="js/post_verification.js" async></script>
 </head>
 <body class="indigo accent-3">
   
@@ -184,23 +176,22 @@ Also includes 5 total restricted days at Vail, Beaver Creek, Breckenridge, Keyst
           <!-- <form action="#"> -->
           <div class="row" style="background-color: #FFFFFF; margin: 0px">
             <div class="col s2">
-            	<button class="btn waves-effect green darken-1" style="margin-top: 15px">add</button>
+            	<button class="btn waves-effect green darken-1" style="margin-top: 15px;">add</button>
             </div>
             <div class="col s4 input-field center">
               <input id="name" type="text" class="validate" placeholder="Add Yourself">
-      	  	  <label for="name"></label>
             </div>
             <div class="col s3">
-            	<input type="date" name="bday" style="margin-top: 15px">
+            	<input id="bday" type="date" style="margin-top: 15px">
             </div>
             <div class="col s1"></div>
-            <div class="col s3 input-field" > 
+            <div id="pass" class="col s3 input-field" > 
               <select style="z-index: 10000">
                 <option value="" disabled selected>Choose Wisely</option>
                 <option value="1">Epic</option>
                 <option value="2">Epic Local</option>
                 <option value="3">Tahoe Local</option>
-                <option value="4">Tahoe Value</option>
+                <option value="4" disabled>Tahoe Value</option>
               </select>
               <label></label>
             </div>
