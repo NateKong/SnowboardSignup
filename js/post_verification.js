@@ -56,6 +56,7 @@ function addPerson(){
 		$("#pass option").prop("selected", function(){
 			return this.defaultSelected;
 		});
+		$("button.btn.green").hide();
 	}).fail(function() {
 		document.getElementById("mySQLData").innerHTML = 'error';
 	});
