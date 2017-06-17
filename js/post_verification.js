@@ -50,13 +50,18 @@ function submit(){
 function addPerson(){
 	var json = { 'name': name, 'date': bday, 'pass': pass};
 	$.post('../php/add.php', json, function(data, status){
-		document.getElementById("mySQLData").innerHTML = data;
-		$("input[type=text]").val("");
-		$("input[type=date]").val("");
-		$("#pass option").prop("selected", function(){
-			return this.defaultSelected;
-		});
-		$("button.btn.green").hide();
+		if (data == "Error: Duplicate Name"){
+			alert("Error: Duplicate Name");
+		}else{
+			document.getElementById("mySQLData").innerHTML = data;
+			$("input[type=text]").val("");
+			$("input[type=date]").val("");
+			$("#pass option").prop("selected", function(){
+				return this.defaultSelected;
+			});
+			$("button.btn.green").hide();
+			checkbox();
+		}
 	}).fail(function() {
 		document.getElementById("mySQLData").innerHTML = 'error';
 	});
