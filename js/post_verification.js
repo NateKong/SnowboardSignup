@@ -49,11 +49,14 @@ function submit(){
 
 function addPerson(){
 	var json = { 'name': name, 'date': bday, 'pass': pass};
-	
 	$.post('../php/add.php', json, function(data, status){
 		document.getElementById("mySQLData").innerHTML = data;
-	})fail(function() {
+		$("input[type=text]").val("");
+		$("input[type=date]").val("");
+		$("#pass option").prop("selected", function(){
+			return this.defaultSelected;
+		});
+	}).fail(function() {
 		document.getElementById("mySQLData").innerHTML = 'error';
 	});
-	
 }
