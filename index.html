@@ -176,7 +176,7 @@ Also includes 5 total restricted days at Vail, Beaver Creek, Breckenridge, Keyst
           <!-- <form action="#"> -->
           <div class="row" style="background-color: #FFFFFF; margin: 0px">
             <div class="col s2">
-            	<button class="btn waves-effect green darken-1" style="margin-top: 15px;">add</button>
+            	<button class="btn waves-effect green darken-1" style="margin-top: 15px;" onclick="addPerson()">add</button>
             </div>
             <div class="col s4 input-field center">
               <input id="name" type="text" class="validate" placeholder="Add Yourself">
@@ -185,13 +185,13 @@ Also includes 5 total restricted days at Vail, Beaver Creek, Breckenridge, Keyst
             	<input id="bday" type="date" style="margin-top: 15px">
             </div>
             <div class="col s1"></div>
-            <div id="pass" class="col s3 input-field" > 
-              <select style="z-index: 10000">
+            <div class="col s3 input-field" > 
+              <select id="pass" style="z-index: 10000">
                 <option value="" disabled selected>Choose Wisely</option>
                 <option value="1">Epic</option>
                 <option value="2">Epic Local</option>
                 <option value="3">Tahoe Local</option>
-                <option value="4" disabled>Tahoe Value</option>
+                <option value="4">Tahoe Value</option>
               </select>
               <label></label>
             </div>
