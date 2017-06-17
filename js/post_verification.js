@@ -46,11 +46,14 @@ function submit(){
 
 
 /*****   AJAX POST   *****/
-/*	
-function add(person){
-	$.post('php/add.php', person, function(data, status){
+
+function addPerson(){
+	var json = { 'name': name, 'date': bday, 'pass': pass};
+	
+	$.post('../php/add.php', json, function(data, status){
 		document.getElementById("mySQLData").innerHTML = data;
 	})fail(function() {
 		document.getElementById("mySQLData").innerHTML = 'error';
 	});
-}*/
+	
+}
