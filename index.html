@@ -26,35 +26,41 @@
     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
     crossorigin="anonymous"></script>
   <script src="global_js/materialize.js" async></script>
+  <script src="js/post_verification.js" async></script>
+  <script src="js/delete.js" async></script>
   <script>
-	$(document).ready(function(){
-		$('.modal-trigger').leanModal();
-		$('select').material_select();
-		$("input#checkbox-delete").change(function(){
-			$("button.btn.red").toggle();
-         });
-	});
-  </script>
-  <script>
-	/*function delete(name){
-		$.post('php/delete.php', name, function(data, status){
-			document.getElementById("mySQLData").innerHTML = data;
-		})fail(function() {
-			document.getElementById("mySQLData").innerHTML = 'error';
-		});
-	}*/
+
+  	//controls checkbox for delete
+	function checkbox(){
+		var c = document.getElementById("checkbox-delete");
+		if(c.checked){
+			$("button.btn.red").show();
+		}else{
+			$("button.btn.red").hide();
+		}
+	}
 
 	$(document).ready(function(){
-		//document.getElementById("mySQLData").innerHTML = "data";
+		//get modal to work
+		$('.modal-trigger').leanModal();
+		//material design features for selecting pass type
+		$('select').material_select();
+
+		//AJAX GET to get data
 		$.get('php/query.php', function(data, status){
 			document.getElementById("mySQLData").innerHTML = data;
+			checkbox();
 		}).fail(function() {
 			document.getElementById("mySQLData").innerHTML = 'error';
 		});
-	});	
+
+		//listen for when the checkbox is changed
+		$("input#checkbox-delete").change(function(){
+			checkbox();
+	     });
+	});
 	
   </script>
-  <script src="js/post_verification.js" async></script>
 </head>
 <body class="indigo accent-3">
   
