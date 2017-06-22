@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -19,7 +19,6 @@
 	.topPad{ padding-top: 30px; }
   </style>
   
-  
   <!--  Scripts-->
   <script
     src="https://code.jquery.com/jquery-3.2.1.js"
@@ -29,7 +28,6 @@
   <script src="js/post_verification.js" async></script>
   <script src="js/delete.js" async></script>
   <script>
-
   	//controls checkbox for delete
 	function checkbox(){
 		var c = document.getElementById("checkbox-delete");
@@ -46,8 +44,11 @@
 		//material design features for selecting pass type
 		$('select').material_select();
 
-		//AJAX GET to get data
+		//AJAX GET to query data
 		$.get('php/query.php', function(data, status){
+
+
+
 			document.getElementById("mySQLData").innerHTML = data;
 			checkbox();
 		}).fail(function() {
@@ -176,10 +177,9 @@ Also includes 5 total restricted days at Vail, Beaver Creek, Breckenridge, Keyst
             </div>
           </li>
           <span id="mySQLData">
-          <!--mySQL data goes here-->
           </span>
         </ul>
-          <!-- <form action="#"> -->
+
           <div class="row" style="background-color: #FFFFFF; margin: 0px">
             <div class="col s2">
             	<button class="btn waves-effect green darken-1" style="margin-top: 15px;" onclick="addPerson()">add</button>
@@ -202,9 +202,6 @@ Also includes 5 total restricted days at Vail, Beaver Creek, Breckenridge, Keyst
               <label></label>
             </div>
           </div>
-          <!-- </form> -->
 	  </div>
-  
-
 </body>
 </html>
